@@ -2,7 +2,7 @@ const path = require('path');
 const webpackConfig = require('../setup/webpack.base.config');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-export class API {
+class API {
 
   constructor() {
     this.webpackConfig = webpackConfig;
@@ -15,7 +15,7 @@ export class API {
   sass(currentPath, desiredPath) {
     this.webpackConfig.entry[Object.keys(webpackConfig.entry)[0]].push(path.resolve(process.cwd(), currentPath));
     this.webpackConfig.module.rules.push({
-      test: process.cwd() + currentPath,
+      test: path.resolve(process.cwd(), currentPath),
       loader: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [
@@ -27,7 +27,7 @@ export class API {
       })
     });
     const index = this.webpackConfig.module.rules.findIndex(rule => {
-      return rule.test === /\.(sass|scss)$/;
+      return String(rule.test) === String(/\.(sass|scss)$/);
     });
     this.webpackConfig.module.rules[index].exclude.push(path.resolve(process.cwd(), currentPath));
     this.webpackConfig.plugins.push(new ExtractTextPlugin({ filename: desiredPath + '.css' }));
@@ -38,3 +38,5 @@ export class API {
   }
 
 }
+
+module.exports = API;

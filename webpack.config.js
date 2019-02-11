@@ -1,3 +1,3 @@
-const configuration = require('./index');
+const { WebpackAssetsConfig } = require('./index');
 
-export default configuration.build();
+module.exports = WebpackAssetsConfig.build();

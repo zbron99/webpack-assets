@@ -1,0 +1,18 @@
+{
+  "terser": {
+    "cache": true,
+    "parallel": true,
+    "sourceMap": true,
+    "terserOptions": {
+      "compress": {
+        "warnings": false
+      },
+      "output": {
+        "comments": false
+      }
+    }
+  },
+  "cssNano": {
+    
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "webpack-assets",
+  "version": "1.0.0",
+  "description": "A Webpack v4 solution for fluently defining inputs and build outputs of all assets. (js, css, ts, vue)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "css-loader": "^1.0.1",
+    "extract-text-webpack-plugin": "v4.0.0-beta.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "terser": "^3.11.0",
+    "terser-webpack-plugin": "^1.1.0",
+    "vue": "2.5.17",
+    "vue-loader": "15.6.2",
+    "vue-template-compiler": "2.5.17",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-manifest-plugin": "^2.0.4",
+    "webpack-notifier": "^1.7.0",
+    "webpack-stream": "^5.1.1",
+    "webpackbar": "^3.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbron99/webpack-assets.git"
+  },
+  "author": "Zach Broniszewski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zbron99/webpack-assets/issues"
+  },
+  "homepage": "https://github.com/zbron99/webpack-assets#readme"
+}

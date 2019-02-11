@@ -3,7 +3,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackBarPlugin = require('webpackbar');
-const VueLoaderPlugin = require('vue-loader');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const NotifierPlugin = require('webpack-notifier');
 const path = require('path');
@@ -14,7 +14,8 @@ module.exports = {
   stats: {
     all: false,
     assets: true,
-    performance: true
+    performance: true,
+    errors: true
   },
   performance: {
     hints: WebpackAssets.inProduction() ? true : false

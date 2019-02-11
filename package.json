@@ -9,6 +9,7 @@
   "dependencies": {
     "css-loader": "^1.0.1",
     "extract-text-webpack-plugin": "v4.0.0-beta.0",
+    "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",

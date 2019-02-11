@@ -1,4 +1,4 @@
-export class WebpackAssets {
+class WebpackAssets {
 
   static environment() {
     return process.env.NODE_ENV;
@@ -9,3 +9,5 @@ export class WebpackAssets {
   }
 
 }
+
+module.exports = WebpackAssets;

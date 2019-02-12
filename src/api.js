@@ -20,7 +20,14 @@ class API {
         fallback: 'style-loader',
         use: [
           'css-loader',
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [
+                require('autoprefixer')()
+              ]
+            }
+          },
           'resolve-url-loader',
           'sass-loader'
         ]

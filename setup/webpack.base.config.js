@@ -109,6 +109,8 @@ module.exports = {
         };
       }
     }),
-    new NotifierPlugin(),
+    new NotifierPlugin({
+      alwaysNotify: true
+    })
   ]
 };

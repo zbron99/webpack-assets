@@ -14,9 +14,10 @@ class API {
 
   sass(currentPath, desiredPath) {
     this.webpackConfig.entry[Object.keys(webpackConfig.entry)[0]].push(path.resolve(process.cwd(), currentPath));
+    const extractInstance = new ExtractTextPlugin({ filename: desiredPath + '.css' });
     this.webpackConfig.module.rules.push({
       test: path.resolve(process.cwd(), currentPath),
-      loader: ExtractTextPlugin.extract({
+      loader: extractInstance.extract({
         fallback: 'style-loader',
         use: [
           'css-loader',
@@ -37,7 +38,7 @@ class API {
       return String(rule.test) === String(/\.(sass|scss)$/);
     });
     this.webpackConfig.module.rules[index].exclude.push(path.resolve(process.cwd(), currentPath));
-    this.webpackConfig.plugins.push(new ExtractTextPlugin({ filename: desiredPath + '.css' }));
+    this.webpackConfig.plugins.push(extractInstance);
   }
 
   build() {

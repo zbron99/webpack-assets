@@ -89,6 +89,7 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
+    extensions: ['.ts', '.js', '.json'],
     alias: {
       vue: 'vue/dist/vue.js',
       vue$: 'vue/dist/vue.esm.js'

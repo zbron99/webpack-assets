@@ -51,7 +51,7 @@ module.exports = {
         loader: 'ts-loader',
         options: {
           appendTsSuffixTo: [/\.vue$/],
-          configFile: path.resolve(process.cwd(), 'tsconfig.client.json')
+          configFile: path.resolve(process.cwd(), '.tsconfig/tsconfig.client.json')
         }
       },
       {

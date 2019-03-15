@@ -6,5 +6,5 @@ const asset = new API();
 
 module.exports = asset;
 
-const WebpackAssetsConfig = require(path.resolve(process.cwd(), 'webpack.config'));
+const WebpackAssetsConfig = require(path.resolve(process.cwd(), '.webpack/webpack.config'));
 module.exports.WebpackAssetsConfig = WebpackAssetsConfig;

@@ -18,7 +18,9 @@ module.exports = {
     errors: true
   },
   performance: {
-    hints: WebpackAssets.inProduction() ? true : false
+    hints: WebpackAssets.inProduction() ? 'warning' : false,
+    maxAssetSize: 600000,
+    maxEntrypointSize: 2000000
   },
   optimization: WebpackAssets.inProduction() ? {
     namedChunks: false,
@@ -91,8 +93,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js', '.json'],
     alias: {
-      vue: 'vue/dist/vue.js',
-      vue$: 'vue/dist/vue.esm.js'
+      vue$: WebpackAssets.inProduction() ? 'vue/dist/vue.min.js' : 'vue/dist/vue.esm.js'
     }
   },
   plugins: [

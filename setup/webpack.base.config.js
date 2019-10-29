@@ -39,12 +39,22 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        exclude: [/node_modules/, /src/],
+        // exclude: [/node_modules/, /src/],
         loader: 'vue-loader',
         options: {
           loaders: {
-            'scss': ['vue-style-loader', 'css-loader', 'sass-loader'],
-            'sass': ['vue-style-loader', 'css-loader', 'sass-loader']
+            'scss': ['vue-style-loader', {
+              loader: 'css-loader',
+              options: {
+                url: false
+              }
+            }, 'sass-loader'],
+            'sass': ['vue-style-loader', {
+              loader: 'css-loader',
+              options: {
+                url: false
+              }
+            }, 'sass-loader']
           }
         }
       },
@@ -82,6 +92,26 @@ module.exports = {
           ]
         })
       },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: false
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [
+                require('autoprefixer')()
+              ]
+            }
+          },
+        ]
+      }
     ]
   },
   entry: {},
@@ -91,7 +121,7 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.ts', '.js', '.json'],
+    extensions: ['.ts', '.js', '.json', '.vue'],
     alias: {
       vue$: WebpackAssets.inProduction() ? 'vue/dist/vue.min.js' : 'vue/dist/vue.esm.js'
     }
